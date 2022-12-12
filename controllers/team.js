@@ -1,11 +1,16 @@
-const { Team, Player } = require('../models')
+const { Team, Player, Country } = require('../models')
 // const Player = require('../models/player')
 const getListTeam = async (req, res) => {
   try {
     const query = await Team.findAll({
       include: [{
         model: Player,
-        as: 'players'
+        as: 'players',
+        attributes: ['playerName'],
+        include: [{
+          model: Country,
+          attributes: ['countryName']
+        }]
       }]
       // attributes: ['id', 'itemName']
     })

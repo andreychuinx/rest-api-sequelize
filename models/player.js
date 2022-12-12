@@ -14,6 +14,11 @@ const Player = sequelize.define('Player', {
     allowNull: false,
     field: 'id_team'
   },
+  idCountry: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    field: 'country_id'
+  },
   playerName: {
     type: DataTypes.STRING,
     field: 'name_player'

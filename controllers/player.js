@@ -1,4 +1,4 @@
-const { Player, Team } = require('../models')
+const { Player, Team, Country } = require('../models')
 
 const getListPlayer = async (req, res) => {
   try {
@@ -6,6 +6,9 @@ const getListPlayer = async (req, res) => {
       include: [{
         model: Team,
         as: 'team'
+      }, {
+        model: Country,
+        attributes: ['countryName']
       }],
       attributes: ['id', 'playerName']
     })

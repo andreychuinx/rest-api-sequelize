@@ -5,10 +5,11 @@ const createTableTeam = async () => {
   try {
     await db.query(
       `
-        CREATE or REPLACE PROCEDURE team_insert_data("nameTeam" character varying)
+        CREATE or REPLACE PROCEDURE proc_test1(test varchar)
         LANGUAGE SQL
         AS $$
-        INSERT INTO teams (name_team) values ("nameTeam")
+        INSERT INTO teams (name_team) values ("test");
+        select * from teams
         $$;
       `
     )

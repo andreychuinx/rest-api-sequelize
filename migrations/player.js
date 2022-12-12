@@ -8,6 +8,7 @@ const createTablePlayer = async () => {
         CREATE TABLE IF NOT EXISTS players (
         id_players serial PRIMARY KEY,
         id_team serial not null,
+        id_country serial not null,
         name_player varchar(30) not null,
         createdAt timestamp,
         updatedAt timestamp
