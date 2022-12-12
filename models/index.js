@@ -1,16 +1,10 @@
-// const Sequelize = require('sequelize')
-// const sequelize = require('../config')
+const Team = require('./team')
+const Player = require('./player')
 
-// const itemModel = require('./item')
+Player.belongsTo(Team, { foreignKey: 'id_team', as: 'team'})
+Team.hasMany(Player, { foreignKey: 'id_team', as: 'players'})
 
-// const models = {
-//   Item: itemModel(sequelize, Sequelize)
-// }
-
-// Object.keys(models).forEach((key) => {
-//   if ('associate' in models[key]) {
-//     models[key].associate(models);
-//   }
-// });
-
-// module.exports = models;
+module.exports = {
+  Team,
+  Player
+}
